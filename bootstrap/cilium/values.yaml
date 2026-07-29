@@ -1,0 +1,17 @@
+# Cilium sur k3s single-node
+operator:
+  # Le defaut est 2 replicas ; sur un seul noeud le second reste Pending
+  replicas: 1
+
+ipam:
+  # Utilise le podCIDR attribue par k3s au noeud plutot que le pool interne
+  # de Cilium, ce qui evite tout chevauchement avec le cluster-cidr k3s
+  mode: kubernetes
+
+# Hubble : observabilite des flux reseau
+hubble:
+  enabled: true
+  relay:
+    enabled: true
+  ui:
+    enabled: true
