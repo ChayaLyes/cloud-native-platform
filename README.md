@@ -3,7 +3,7 @@
 This document explains why the platform is shaped the way it is. Where a decision could
 reasonably have gone the other way, the alternative is stated along with the reason it was not
 chosen.
-
+![Architecture](docs/architecture.png)
 ---
 
 ## 1. Goals and non-goals
