@@ -15,3 +15,7 @@ hubble:
     enabled: true
   ui:
     enabled: true
+
+# Note de version : k3s epingle sur le canal v1.35 volontairement.
+# Cilium 1.19.6 est e2e-teste sur k8s 1.32 a 1.35 uniquement ; le canal
+# stable de k3s livrait 1.36, hors de la fenetre testee.
