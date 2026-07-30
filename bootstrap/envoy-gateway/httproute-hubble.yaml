@@ -1,0 +1,19 @@
+# Premiere HTTPRoute : expose Hubble UI (interface de Cilium) via la Gateway.
+# La route vit dans kube-system, la ou se trouve le service cible.
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: hubble-ui
+  namespace: kube-system
+spec:
+  parentRefs:
+    # Reference vers la Gateway, qui est dans un AUTRE namespace.
+    # Autorise parce que la Gateway declare allowedRoutes.from: All
+    - name: platform-gateway
+      namespace: envoy-gateway-system
+  hostnames:
+    - hubble.lab.local
+  rules:
+    - backendRefs:
+        - name: hubble-ui
+          port: 80
